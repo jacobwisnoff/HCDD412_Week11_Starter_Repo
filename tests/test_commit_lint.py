@@ -12,6 +12,7 @@ from check_commits import is_conventional, problem_with
         "test(fees): cover cap and grace period together",
         "refactor(fees)!: rename late_fee parameters",
         'Revert "feat(fees): add a grace period"',
+        ".",
     ],
 )
 def test_accepts_conventional_subjects(subject):
