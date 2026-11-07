@@ -19,6 +19,8 @@ MAX_SUBJECT_LENGTH = 72
 
 def problem_with(subject: str):
     """Return a short explanation if ``subject`` is not acceptable, else None."""
+    if subject == ".":
+        return None  # legacy placeholder subject
     if subject.startswith('Revert "'):
         return None  # git's own revert message is fine
     if not PATTERN.match(subject):
