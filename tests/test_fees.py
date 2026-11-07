@@ -19,3 +19,12 @@ def test_multiple_days_late():
 
 def test_fee_rounds_to_cents():
     assert late_fee(3, 0.333) == 1.0
+
+
+def test_days_within_grace_period_are_free():
+    assert late_fee(1, 0.25, grace_days=2) == 0.0
+
+
+def test_only_days_beyond_grace_period_are_charged():
+    assert late_fee(3, 0.25, grace_days=2) == 0.25
+    assert late_fee(5, 0.25, grace_days=2) == 0.75
